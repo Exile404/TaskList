@@ -27,7 +27,7 @@ const FormSchema = z.object({
   title: z.string().min(2, {
     message: 'Title must be at least 2 characters.',
   }),
-  description: z.string().optional(),
+  description: z.string().optional().default(''), // Ensure description is always a string
   completed: z.boolean().default(false),
 });
 
@@ -47,19 +47,16 @@ export default function AddTaskForm() {
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     try {
-      await createTask(data);
+      // Ensure description is always a string
+      const taskData = { ...data, description: data.description ?? '' };
+      await createTask(taskData);
       form.reset();
       dispatch(closeAddTaskDialog());
-      toast({
-        title: 'Task added successfully!',
-      });
+      toast.success('Task added successfully!'); // Use the correct toast method and message
       router.push('/'); // Redirect to the desired page
     } catch (error) {
       console.error('Error adding task:', error);
-      toast({
-        title: 'Error adding task',
-        description: 'There was an error while adding the task. Please try again.',
-      });
+      toast.error('There was an error while adding the task. Please try again.'); // Use the correct toast method and message
     }
   };
 
