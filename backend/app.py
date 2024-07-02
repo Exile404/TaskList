@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import databases
 from typing import Optional
 from dotenv import load_dotenv
+import uvicorn
 import os
 
 # Load environment variables from .env file
@@ -40,6 +41,7 @@ app = FastAPI()
 origins = [
     "http://localhost:3000",  # Frontend local development
     # Add other origins as needed
+    "task-list-frontend-app.vercel.app"
 ]
 app.add_middleware(
     CORSMiddleware,
