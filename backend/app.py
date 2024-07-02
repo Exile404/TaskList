@@ -41,7 +41,7 @@ app = FastAPI()
 origins = [
     "http://localhost:3000",  # Frontend local development
     # Add other origins as needed
-    "https://task-list-frontend-app.vercel.app/"
+    "https://task-list-frontend-app.vercel.app"
 ]
 app.add_middleware(
     CORSMiddleware,
