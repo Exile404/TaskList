@@ -1,4 +1,3 @@
-// app/pages.tsx
 
 'use client';
 

@@ -1,4 +1,3 @@
-// app/reducer/uiSlice.ts
 import { createSlice } from '@reduxjs/toolkit';
 
 interface UIState {
