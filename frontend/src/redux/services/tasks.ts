@@ -21,7 +21,7 @@ export interface TaskUpdate {
 
 export const tasksApi = createApi({
   reducerPath: 'tasksApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://tasklist-backend-2y5j.onrender.com' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://tasklist-sfoz.onrender.com' }),
   tagTypes: ['Task'],
   endpoints: (builder) => ({
     getTasks: builder.query<Task[], void>({
